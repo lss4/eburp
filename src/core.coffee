@@ -904,8 +904,9 @@ class FlowView extends AlertView
 
 class ConfirmView extends AlertView
 
-  constructor: (gurk, icon, title, text, @yesResult, @noResult, altIcon = null) ->
+  constructor: (gurk, icon, title, text, @yesResult, noResult, altIcon = null) ->
     super(gurk, icon, title, text, noResult, altIcon)
+    @noResult = noResult
     @clearButton(5)
     @setButton(1, "YES")
     @setButton(3, "NO")

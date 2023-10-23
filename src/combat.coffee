@@ -274,7 +274,8 @@ class Combatant
 class CombatantView extends FlowView
 
   constructor : (gurk, @combatant) ->
-    super(gurk, @combatant.getIcon(), @combatant.getName(), null)
+    super(gurk, combatant.getIcon(), combatant.getName(), null)
+    @combatant = combatant
     #           @gurk.pushView(new AlertView(@gurk, combatant.getIcon(), combatant.getName(), combatant.entity.template.description, null))
     @addParagraph("Hit Points: #{@combatant.hitPoints}/#{@combatant.getMaxHitPoints()}", "#FFF")
     if (@combatant.isPlayer)

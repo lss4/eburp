@@ -23,8 +23,9 @@
 # This class is deprecated-- just hanging around for some demo code
 class Map extends TileView
 
-  constructor: (gurk, @mapName) ->
-    super(gurk, @mapName)
+  constructor: (gurk, mapName) ->
+    super(gurk, mapName)
+    @mapName = mapName
     @setButton(1, "NEW")
     @setButton(3, "HIT")
     @setButton(7, "WOW")
@@ -1030,8 +1031,9 @@ class PlayerDialog extends SelectView
   game : null
   canSelect : null
 
-  constructor : (gurk, @action, @preselect = null) ->
-    super(gurk, @action, "CANCEL")
+  constructor : (gurk, action, @preselect = null) ->
+    super(gurk, action, "CANCEL")
+    @action = action
     @game = @gurk.game
     @canSelect = []
     y = 3;
@@ -1323,8 +1325,9 @@ class ItemView extends SelectView
   @sellingPlayer : null
   @inCombat : false
 
-  constructor : (gurk, @player, @itemAction, @param = null, @melee = null, @summon = null, @combatant = null) ->
-    super(gurk, @itemAction, "X")
+  constructor : (gurk, @player, itemAction, @param = null, @melee = null, @summon = null, @combatant = null) ->
+    super(gurk, itemAction, "X")
+    @itemAction = itemAction
     if (@itemAction == ItemView.ACTION_GIVE)
       @items = @param
     else if (@itemAction == ItemView.ACTION_BUY)

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Compile coffee script
-coffee --join $1/gurk.js --compile src/device.coffee src/core.coffee src/model.coffee src/adventure.coffee src/combat.coffee src/gurk.coffee
+cat src/device.coffee src/core.coffee src/model.coffee src/adventure.coffee src/combat.coffee src/gurk.coffee | coffee --compile --stdio > $1/gurk.js
 
 # Copy images
 cp images/* $1
